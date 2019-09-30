@@ -1,4 +1,5 @@
 ## ELECTRONICS HOBBY CLUB (EHC_DAIICT)
+### About Us
 > This club organizes sessions on different topics of current interest, provide introductory lab sessions on various topics, organize debates and quizzes,we also hold basic robot building contests.  
 
 > This is where you will find people soldering circuits, wiring motors and working on projects like communicating with a motor through the serial port of a computer, or making a new multimedia keyboard or just creating disco lights for the next dance night, this is where it all happens.  
