@@ -1,0 +1,25 @@
+{
+  "name": "ehc_daiict",
+  "version": "1.0.0",
+  "description": "ehc_daiict_web_app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meet2410shah/EHC_DAIICT.git"
+  },
+  "keywords": [
+    "EHC"
+  ],
+  "author": "MEET SHAH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meet2410shah/EHC_DAIICT/issues"
+  },
+  "homepage": "https://github.com/meet2410shah/EHC_DAIICT#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
