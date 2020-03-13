@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EHC</title>
+    <style>
+        img {
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 m-auto">
+              <h1 class="text-center display-4 my-4">
+                Projects
+              </h1>
+              <h4>
+                <a href="/">Home</a>
+              </h4>
+                <% if(member) { %>  
+                  <form action="/projects/upload" method="POST" enctype="multipart/form-data">
+                      <label for="title">Title : </label>
+                      <div class="form-group md-3">
+                        <input type="text" name="title" style="width: 100%">
+                      </div>
+                      <label for="content">Content : </label>
+                      <div class="form-group mb-3">
+                        <textarea name="content" id="" cols="155" rows="10"></textarea>
+                      </div>
+                      <div class="custom-file mb-3">
+                        <input type="file" name="file" id="file" class="custom-file-input">
+                        <label for="file" class="custom-file-label">Choose file</label>
+                      </div>
+                      <input type="hidden" name="author" value="<%= member.name %>">
+                      <input type="hidden" name="username" value="<%= member.username %>">
+                      <input type="submit" value="Add Project" class="btn btn-primary btn-block">
+                  </form>
+                <% } %> 
+                <hr>
+                <!--
+                <% if(files) { %>
+                <% files.forEach(function(file) { %>
+                <div class="card card-body mb-3">
+                    <% if(file.isImage) { %>
+                    <img src="/projects/images/<%= file.filename %>" alt="">
+                    <% } else { %>
+                    <%= file.filename %>
+                    <% } %>
+                    <form action="/projects/files/<%= file._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger btn-block mt-4">Delete</button>
+                    </form>
+                </div>
+                <% }) %>
+                <% } else { %>
+                <p>No files to show</p>
+                <% } %>
+                -->
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- Scripts for Bootstrap-->
+    <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

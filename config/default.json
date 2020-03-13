@@ -1,0 +1,13 @@
+{
+  "SERVER": {
+    "PORT": 3000,
+    "DATABASE": {
+      "CONNECTION_STRING": "mongodb://127.0.0.1:27017/EHC"
+    },
+    "URL": "http://localhost:3000"
+  },
+  "COOKIES": {
+    "DURATION": 3000000,
+    "SECRET_KEY": "EHC"
+  }
+}
