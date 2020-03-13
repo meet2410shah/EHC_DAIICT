@@ -29,3 +29,9 @@
 
 > Smit Thakkar  
 +91 99093 73609
+
+## Developer's Guide (EHC_DAIICT)
+###
+Step 1: Clone the repo and run `npm install` to install all the dependencies  
+Step 2: Run `nodemon` or `node index.js`  
+Step 3: Open `localhost:3000` to view the site.
