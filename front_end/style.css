@@ -1,0 +1,501 @@
+body {
+    background-color: #E6E6E6;
+    padding-top: 45px;
+}
+
+.navitem .clubs {
+    width: 135px;
+}
+
+.navitem .aboutme a {
+    background-color: #BDBDBD;
+    color: black;
+}
+
+.navbar {
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    top: 0px;
+    position: fixed;
+    background-color: #151515;
+    letter-spacing: .03em;
+    opacity: .99;
+    width: 99%;
+    z-index: 3;
+    left: .4em;
+    right: .4em;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.navitem {
+    float: left;
+    font-family: Tahoma, Arial;
+    font-size: 1em;
+    color: grey;
+    margin-left: 2px;
+    margin-right: 2px;
+    text-align: center;
+}
+
+.navitem a {
+    display: block;
+    min-width: 125px;
+    height: 60px;
+    line-height: 60px;
+    text-decoration: none;
+    color: #F2F2F2;
+    text-align: center;
+}
+
+@media screen and (min-width : 935px) {
+    .navitem a:hover {
+        background-color: #BDBDBD;
+        color: black;
+        transition: all 0.4s;
+    }
+}
+
+.navitem .home {
+    float: right;
+    margin-right: 4px;
+}
+
+/*MAKING THE NAVBAR RESPONSIVE*/
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    color: lightgrey;
+    background: #151515;
+    text-align: center;
+    padding: 10px 0;
+    display: none;
+    width: 99%;
+    margin-left: 2px;
+    margin-bottom: 3px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+/*Hide checkbox*/
+input[type=checkbox] {
+    display: none;
+}
+
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked~#menu {
+    display: block;
+}
+
+h1 {
+    font-family: Helvetica;
+    font-weight: 100;
+    text-align: center;
+    padding-top: .5em;
+    margin-bottom: 1em;
+    text-shadow: 1px 2px 1px grey;
+}
+
+.main_heading {
+    text-align: center;
+    font-weight: 190;
+    font-size: 100px;
+    margin-bottom: 0.5em;
+    margin-top: 12%;
+}
+
+.main_heading2 {
+    font-family: Helvetica;
+    font-weight: 100;
+    text-align: center;
+    font-size: 37px;
+}
+
+
+/*end of navbar code*/
+
+
+#img2 {
+    height: 30em;
+    width: 60em;
+    box-shadow: 2px 2px 1px grey;
+}
+
+.label {
+    text-align: center;
+    font-size: 1.15em;
+    font-family: "Trebuchet MS";
+    color: black;
+}
+
+.div {
+    height: 30em;
+    width: 60em;
+    transition: height .4s;
+    margin: auto;
+    margin-bottom: 13em;
+    align-items: center;
+}
+
+/*
+.div.div1 {
+    width: 17em;
+}*/
+
+.text {
+    /* visibility: hidden;*/
+    display: inline-block;
+    /*  transition: all .2s;
+    opacity: 0;*/
+    font-family: Lucida Sans;
+    font-size: .95em;
+    text-align: center;
+}
+
+/*
+.div:hover {
+    transition: height .4s;
+    background-color: lightgrey;
+    height: 26em;
+    cursor: pointer;
+}
+
+.div:hover .text {
+    visibility: visible;
+    transition: all .4s;
+    opacity: 1;
+}*/
+
+#toptext {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: .9em;
+}
+
+#bottomtext {
+    text-align: center;
+    background-color: lightGrey;
+    padding: 2em;
+    font-family: "Lucida Sans";
+    color: grey;
+    font-size: .6em;
+    clear: left;
+    clear: right;
+    letter-spacing: .02em;
+    clear: left;
+}
+
+
+.div1 {
+    height: 26em;
+}
+
+.bottomtext {
+    text-align: center;
+    background-color: lightGrey;
+    padding: 2em;
+    font-family: "Lucida Sans";
+    color: grey;
+    font-size: .7em;
+    letter-spacing: .02em;
+    margin-top: 3em;
+}
+
+
+/****************************************************************************************************************
+****************************************************************************************************************
+****************************************************************************************************************
+****************************************************************************************************************/
+
+
+/*set up the container to be responsive columns that push down to a single column layout*/
+
+.team_heading {
+    font-size: 40px;
+    font-family: Helvetica;
+}
+
+.team_heading2 {
+    font-size: 35px;
+    font-family: Helvetica;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: -10%;
+}
+
+.team-section {
+    margin: 200px auto 100px;
+    display: grid;
+    /*minimum size  350px, maximum size 1fr of the viewport*/
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 20px;
+}
+
+.card {
+    z-index: 0;
+    margin: 0 auto;
+    position: relative;
+    width: 350px;
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .5);
+    overflow: hidden;
+}
+
+.layer {
+    z-index: 1;
+    position: absolute;
+    /*position away from .card & .content*/
+
+    top: calc(100% - 2px);
+    /*pushes up the layer by 2px to appear as border-bottom on card by default*/
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#43cea2, #185a9d);
+
+    transition: 0.5s;
+    /*sets up for animation*/
+}
+
+/*cursor for hovering over card
+.card:hover {
+    cursor: pointer;
+}
+*/
+/*when hovering over card, .layer will move up to the top of parent container .card */
+.card:hover .layer {
+    top: 0;
+}
+
+.content {
+    z-index: 3;
+    /*content is relative to parent card to allow text to appear on top of .Layer (absolute)*/
+    position: relative;
+}
+
+.content p {
+    font-size: 1em;
+    line-height: 1.5em;
+    color: #fff;
+}
+
+/*turn image holder into circle*/
+.content .image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 4px solid white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .5);
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+/*move image to acknowledge click*/
+.image:active {
+    position: relative;
+    top: 3px;
+}
+
+/*reduce size of image*/
+img {
+    width: 150px;
+    height: 150px;
+}
+
+/*style name and position title */
+.content .details h2 {
+    font-size: 1.2em;
+    color: white;
+}
+
+.content .details h2 span {
+    font-size: 1em;
+    color: #2980b9;
+    font-weight: 100;
+    transition: 0.5s;
+}
+
+/*when hovering .card, change colour of text*/
+.card:hover .content h2 span {
+    color: white;
+}
+
+@-webkit-keyframes loading-anim {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes loading-anim {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/******* CONTACT PAGE ************/
+
+
+h3 {
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: 600;
+}
+
+
+/******* CONTACT PAGE ************/
+
+
+/****************************************************************************************************************
+****************************************************************************************************************
+****************************************************************************************************************
+****************************************************************************************************************/
+
+@media screen and (max-width : 932px) {
+    .navbar {
+        left: 0;
+        right: 0;
+        position: relative;
+        display: none;
+    }
+
+    body {
+        padding-top: 0;
+    }
+
+    /*Create vertical spacing*/
+    .navitem {
+        background-color: black;
+        text-align: center;
+        width: 100%;
+        position: relative;
+        margin-top: 1px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar .navitem a {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .navitem.home {
+        float: left;
+    }
+
+    /*Display 'show menu' link*/
+    .show-menu {
+        display: block;
+    }
+
+    .navitem.clubs {
+        background-color: black;
+        text-align: center;
+        width: 100%;
+        position: relative;
+        margin-top: 1px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .div {
+        height: 30em;
+        width: 60em;
+        transition: height .4s;
+        margin: auto;
+        margin-bottom: 20em;
+        align-items: center;
+    }
+
+    h1 {
+        font-family: Helvetica;
+        font-weight: 100;
+        text-align: center;
+        padding-top: .5em;
+        margin-bottom: 1em;
+        text-shadow: 1px 2px 1px grey;
+    }
+
+    .main_heading {
+        text-align: center;
+        font-weight: 190;
+        font-size: 40px;
+        margin-bottom: 1em;
+        margin-top: 60%;
+    }
+
+    .main_heading2 {
+        font-family: Helvetica;
+        font-weight: 100;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    /****************************************************************************************************************
+****************************************************************************************************************
+****************************************************************************************************************
+****************************************************************************************************************/
+
+    .card {
+        z-index: 0;
+        margin: 0 auto;
+        position: relative;
+        width: 250px;
+        background-color: #333;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, .5);
+        overflow: hidden;
+    }
+
+    .team_heading2 {
+        font-size: 35px;
+        font-family: Helvetica;
+        font-weight: 100;
+        text-align: center;
+        margin-bottom: -45%;
+    }
+
+
+}
+
+@media screen and (max-width : 720px) {
+    #img2 {
+        width: 16em;
+        height: 11em;
+    }
+
+    .div {
+        width: 16em;
+        height: 23em;
+        /* background-color: lightgrey;*/
+    }
+
+    .div .text {
+        visibility: visible;
+        opacity: 1;
+        margin: auto;
+        padding-bottom: 10px;
+    }
+}
