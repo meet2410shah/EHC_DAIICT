@@ -52,8 +52,11 @@ app.get(`/login`, userOut, (req, res) => {
 });
 
 app.post(`/login`, userOut, (req, res) => {
-  const { username, password } = req.body;
-  Member.findOne({ username }, (err, member) => {
+  const { 
+    your_username,
+    password
+  } = req.body;
+  Member.findOne({ your_username }, (err, member) => {
     if (err || !member) {
       return res.redirect("/login?error='usernotfound'");
     }
@@ -71,22 +74,33 @@ app.get(`/register`, userOut, (req, res) => {
 });
 
 app.post(`/register`, userOut, (req, res) => {
-  const { name, email, mobile, username, password } = req.body;
-  const newMember = new Member({
-    name,
-    email,
-    mobile,
-    username,
-    password
-  });
-  newMember.save().then((member, err) => {
-    console.log(err);
-    if (err) {
-      return res.redirect(`/register`);
-    }
-    res.cookie(`Token`, member._id, { maxAge: DURATION });
-    return res.redirect("/dashboard");
-  });
+  const {
+    first_name,
+    last_name,
+    your_email,
+    your_username,
+    password,
+    comfirm_password,
+    checkbox,
+  } = req.body;
+  if(checkbox == 'on') {
+    const newMember = new Member({
+      first_name,
+      last_name,
+      your_email,
+      your_username,
+      password,
+    });
+    newMember.save().then((member, err) => {
+      if (err) {
+        return res.redirect(`/register`);
+      }
+      res.cookie(`Token`, member._id, { maxAge: DURATION });
+      return res.redirect("/dashboard");
+    });
+  } else {
+    return res.redirect("/register?error='please accept the TandC'");
+  }
 });
 
 app.post(`/logout`, (req, res) => {

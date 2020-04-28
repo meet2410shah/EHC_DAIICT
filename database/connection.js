@@ -7,7 +7,7 @@ const CONNECTION_URL = config.get(`SERVER.DATABASE.CONNECTION_STRING`);
 mongoose.Promise = global.Promise;
 
 mongoose.set(`useNewUrlParser`, true);
-mongoose.set(`useFindAndModify`, false);
+mongoose.set(`useFindAndModify`, true);
 mongoose.set(`useCreateIndex`, true);
 mongoose.set(`useUnifiedTopology`, true);
 mongoose
