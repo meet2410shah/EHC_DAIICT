@@ -6,26 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EHC</title>
-    <style>
-        img {
-            width: 100%;
-        }
-    </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        EHC | Electronic Hobby Club
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Dashboard <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/projects">Projects</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 m-auto">
-              <h1 class="text-center display-4 my-4">
-                Projects
-              </h1>
-              <h4>
-                <a href="/">Home</a>
-              </h4>
+              <h2 class="text-center">
+                New Project
+              </h2>
                 <% if(member) { %>  
+                  <form action="/projects" class="mb-4">
+                    <button type="submit" class="btn btn-outline-primary">
+                      Go back to Projects
+                    </button>
+                  </form>
                   <form action="/projects/upload" method="POST" enctype="multipart/form-data">
                       <label for="title">Title : </label>
                       <div class="form-group md-3">
@@ -35,16 +53,18 @@
                       <div class="form-group mb-3">
                         <textarea name="content" id="" cols="155" rows="10"></textarea>
                       </div>
+                      <label for="file">Add an image to your post : </label>
                       <div class="custom-file mb-3">
                         <input type="file" name="file" id="file" class="custom-file-input">
                         <label for="file" class="custom-file-label">Choose file</label>
                       </div>
-                      <input type="hidden" name="author" value="<%= member.name %>">
+                      <input type="hidden" name="author" value="<%= member.first_name + member.last_name %>">
                       <input type="hidden" name="username" value="<%= member.username %>">
-                      <input type="submit" value="Add Project" class="btn btn-primary btn-block">
+                      <input type="submit" value="Add Project" class="btn btn-primary">
                   </form>
                 <% } %> 
-                <hr>
+                <br />
+                <br />
                 <!--
                 <% if(files) { %>
                 <% files.forEach(function(file) { %>

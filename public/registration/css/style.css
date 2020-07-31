@@ -6,7 +6,8 @@ body {
 	margin:  0 auto;
 	background: #75e2e9;
 	display: flex;
-	height: 100vh;
+	height: auto;
+	min-height: 100vh;
 	display: -webkit-flex;
 	justify-content: center;
 	-o-justify-content: center;
@@ -22,6 +23,8 @@ body {
 .form-v4-content  {
 	background: #fff;
 	width: 850px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	border-radius: 10px;
 	-o-border-radius: 10px;
 	-ms-border-radius: 10px;

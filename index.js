@@ -80,10 +80,13 @@ app.post(`/register`, userOut, (req, res) => {
     your_email,
     your_username,
     password,
-    comfirm_password,
+    confirm_password,
     checkbox,
   } = req.body;
-  if(checkbox == 'on') {
+  if(password !== confirm_password) {
+    return res.redirect("/register?error='password doesn't match'");
+  }
+  if(checkbox === 'on') {
     const newMember = new Member({
       first_name,
       last_name,
