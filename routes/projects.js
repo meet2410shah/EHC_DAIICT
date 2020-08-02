@@ -67,7 +67,7 @@ router.get("/", (req, res) => {
 router.get("/open/:id", (req, res) => {
   Project.findById({_id: req.params.id}, (err, result) => {
     const { Token } = req.cookies;
-    console.log(result);
+    //console.log(result);
     return res.render("project_single", { projects: null, project: result, member: Token });
   });
 });

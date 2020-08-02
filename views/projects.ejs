@@ -22,9 +22,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Dashboard <span class="sr-only">(current)</span></a>
-          </li>
+          <% if(member) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Dashboard <span class="sr-only">(current)</span></a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+          <% } %>
           <li class="nav-item active">
             <a class="nav-link" href="/projects">Projects</a>
           </li>
@@ -53,7 +59,9 @@
                 <div class="card card-body mb-3">
                     <h4><%= project.title %></h4>
                     <% if(project.filepath != '-') { %>
-                    <img src="/projects/images/<%= project.filepath %>" alt="" style="max-height: 100px; width: auto;">
+                      <div style="height: 100px;">
+                        <img class="img-responsive" src="/projects/images/<%= project.filepath %>" alt="" height="100%">
+                      </div>
                     <% } %>
                     <p>By <%= project.author %></p>
                     <p><%= project.creationDate %></p>

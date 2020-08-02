@@ -36,7 +36,9 @@
         <div class="card card-body mb-3 mt-3">
           <h4><%= project.title %></h4>
           <% if(project.filepath != '-') { %>
-          <img src="/projects/images/<%= project.filepath %>" alt="" style="max-height: 100px; width: auto;">
+            <div style="height: 100px;">
+              <img class="img-responsive" src="/projects/images/<%= project.filepath %>" alt="" height="100%">
+            </div>
           <% } %>
           <p><%= project.content %></p>
           <p>By <%= project.author %></p>
