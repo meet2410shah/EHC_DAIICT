@@ -47,6 +47,19 @@ app.get(`/dashboard`, (req, res) => {
   return res.render("dashboard");
 });
 
+app.get('/profile', (req, res) => {
+  const { Token } = req.cookies;
+  Member.findById(Token, (err, result) => {
+    if(err) {
+      console.log(err);
+      return res.redirect('/dashboard');  
+    }
+    //console.log("Hello", result);
+    return res.render('profile', { member: result, error: null });
+  });
+
+});
+
 app.get(`/login`, userOut, (req, res) => {
   res.render("login");
 });
@@ -114,6 +127,7 @@ app.post(`/logout`, (req, res) => {
 });
 
 const projects = require("./routes/projects");
+const { isRegExp } = require("util");
 
 app.use(`/projects`, projects);
 

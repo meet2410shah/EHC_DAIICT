@@ -26,14 +26,20 @@
             <li class="nav-item">
               <a class="nav-link" href="/">Dashboard <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
           <% } else { %>
             <li class="nav-item">
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/projects">Projects</a>
+            </li>
           <% } %>
-          <li class="nav-item active">
-            <a class="nav-link" href="/projects">Projects</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -63,8 +69,10 @@
                         <img class="img-responsive" src="/projects/images/<%= project.filepath %>" alt="" height="100%">
                       </div>
                     <% } %>
+                    <% let d = new Date(project.creationDate); %>
+                    <% let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
+                    <p>Created On: <%= d.getDate() %>/<%= d.getMonth() + 1 %>/<%= d.getFullYear()%>, <%= days[d.getDay()] %></p>
                     <p>By <%= project.author %></p>
-                    <p><%= project.creationDate %></p>
                     <% if(member) { %>
                       <div class="d-flex">
                         <form action="/projects/delete/<%= project._id %>" method="POST">
