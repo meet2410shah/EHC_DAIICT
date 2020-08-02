@@ -100,7 +100,9 @@ app.post(`/register`, userOut, (req, res) => {
       }
       res.cookie(`Token`, member._id, { maxAge: DURATION });
       return res.redirect("/dashboard");
-    });
+    }).catch(e => {
+      return res.redirect("/register?error='user already exists'");
+    })
   } else {
     return res.redirect("/register?error='please accept the TandC'");
   }
