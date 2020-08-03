@@ -60,16 +60,16 @@
               <%= x - 12 %>:<%= d.getMinutes() %> PM
             <% } %>-->
           </p>
-          <% if(member) { %>
-            <div class="d-flex">
+          <div class="d-flex">
+            <% if(member) { %>
               <form action="/projects/delete/<%= project._id %>" method="POST">
                 <button class="btn btn-danger mt-4">Delete</button>
               </form>
-              <form action="/projects" class="ml-4">
-                <button class="btn btn-primary mt-4">Back</button>
-              </form>
-            </div>
-          <% } %>
+            <% } %>
+            <form action="/projects" class="ml-4">
+              <button class="btn btn-primary mt-4">Back</button>
+            </form>
+          </div>
       </div>
     </div>
   </div>

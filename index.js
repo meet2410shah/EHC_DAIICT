@@ -35,6 +35,21 @@ const userOut = (req, res, next) => {
   return next();
 };
 
+const isDaiict = (req, res, next) => {
+  const { your_email } = req.body;
+  if(your_email === '' || your_email === null || your_email === undefined) {
+    return res.redirect("/register?err='please provide email'");
+  }
+  const result = your_email.split("@");
+  if(result.length != 2) {
+    return res.redirect("/register?err='invalid email'");
+  }
+  if(result[1] != 'daiict.ac.in') {
+    return res.redirect("/register?err='daiict_email_only'");
+  }
+  return next();
+}
+
 app.get(`/`, userOut, (req, res) => {
   return res.render("home");
 });
@@ -86,7 +101,7 @@ app.get(`/register`, userOut, (req, res) => {
   return res.render("register");
 });
 
-app.post(`/register`, userOut, (req, res) => {
+app.post(`/register`, userOut, isDaiict, (req, res) => {
   const {
     first_name,
     last_name,

@@ -73,16 +73,16 @@
                     <% let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
                     <p>Created On: <%= d.getDate() %>/<%= d.getMonth() + 1 %>/<%= d.getFullYear()%>, <%= days[d.getDay()] %></p>
                     <p>By <%= project.author %></p>
-                    <% if(member) { %>
-                      <div class="d-flex">
+                    <div class="d-flex">
+                      <% if(member) { %>
                         <form action="/projects/delete/<%= project._id %>" method="POST">
                           <button class="btn btn-danger mt-4">Delete</button>
                         </form>
-                        <form action="/projects/open/<%= project._id%>" class="ml-4">
-                          <button class="btn btn-primary mt-4">Open</button>
-                        </form>
-                      </div>
-                    <% } %>
+                      <% } %>
+                      <form action="/projects/open/<%= project._id%>" class="ml-4">
+                        <button class="btn btn-primary mt-4">Open</button>
+                      </form>
+                  </div>
                 </div>
                 <% }) %>
                 <% } else { %>
